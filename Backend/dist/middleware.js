@@ -8,6 +8,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const config_1 = require("./config");
 const userMiddleware = (req, res, next) => {
     const header = req.headers["authorization"];
+    console.log(header);
     // console.log(header);
     const array = header === null || header === void 0 ? void 0 : header.split(" ");
     // if(array && array[0] !== "Bearer"){

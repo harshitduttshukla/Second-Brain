@@ -12,7 +12,6 @@ export function Sidebaritem({title,icon}:{
         {icon}
         </div>
         <div >  
-
         {title}
         </div>
     </div>
