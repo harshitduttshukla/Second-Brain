@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import  { useRef } from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button22';
 import { BACKEND_URL } from '../config';
@@ -39,44 +39,56 @@ function Signup() {
   }
 
   return (
-    <div className="h-screen w-screen bg-gray-600 flex justify-center items-center">
-      <div className="bg-white border min-w-96 p-8 rounded-lg shadow-xl">
-        <h1 className="text-black text-4xl font-bold text-center mb-6">Sign Up</h1>
+  <div className="h-screen w-screen bg-[#0d0d0d] flex justify-center items-center">
+    <div className="bg-[#141414] border border-white/10 rounded-2xl shadow-xl  p-8 w-full max-w-md backdrop-blur-md transition-all duration-300 hover:scale-[1.12] ">
+      <h1 className="text-3xl font-bold text-white text-center mb-7">Create Account</h1>
 
-        <div className="flex flex-col space-y-6">
-          <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">Username</label>
-            <Input 
-              ref1={usernameRef} 
-              placeholder="Enter your username" 
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label className="text-gray-700 font-medium mb-2">Password</label>
-            <Input 
-              ref1={passwordRef} 
-              placeholder="Enter your password" 
-              type="password" 
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+      <div className="space-y-5">
+        <div>
+          <label className="block text-gray-300 font-medium mb-1">Username</label>
+          <Input
+            ref1={usernameRef}
+            placeholder="Enter your username"
+          
+          />
         </div>
 
-        <div className="flex justify-center mt-6">
-          <Button onclick={handleSignup} variant="primary" text="Signup" />
+        <div>
+          <label className="block text-gray-300 font-medium mb-1">Password</label>
+          <Input
+            ref1={passwordRef}
+            type='password'
+            placeholder="Enter your password"
+            
+          />
         </div>
-
-        <h3 className="text-center mt-4">
-          Already have an account? 
-          <Link to="/signin" className="text-blue-700 hover:underline ml-2">
-            Sign-in
-          </Link>
-        </h3>
       </div>
+
+      <div className="mt-6">
+        <Button
+          onclick={handleSignup}
+          variant="primary"
+          text="Sign Up"
+          
+        />
+      </div>
+
+      <p className="text-center text-gray-400 mt-6">
+        Already have an account?
+        <Link to="/signin" className="text-blue-400 font-semibold ml-1 hover:underline">
+          Sign in
+        </Link>
+      </p>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Signup;
+
+
+
+
+
+
