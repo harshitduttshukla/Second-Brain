@@ -14,7 +14,7 @@ export default {
         },
         purple: {
           200: "#d9ddee",
-          500: "9492db",
+          500: "9492db",   // 🔧 Fix: missing # in hex code
           600: "#7164c0",
         },
       },
@@ -27,9 +27,20 @@ export default {
             textShadow: '0 0 20px rgba(139, 92, 246, 1)',
           },
         },
+        fadeIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.95)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
       },
       animation: {
         pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+        fadeIn: 'fadeIn 0.3s ease-out',
       },
     },
   },

@@ -14,6 +14,8 @@ export function useContent(){
         }).then((response) =>{
 
             setContents(response.data.content)
+            console.log(response.data.content);
+            
 
         })
     }

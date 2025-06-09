@@ -130,21 +130,24 @@ app.get("/api/v1/content",userMiddleware,async(req,res)=>{
     })
 })
 
-app.delete("/api/v1/content",userMiddleware,async(req,res)=>{
-    const contentId = req.body.contentId;
 
-    await ContentModle.deleteMany({
-        contentId,
-        // @ts-ignore
-        userId : req.userId
 
-    })
+// DELETE /api/v1/content/:id
+app.delete("/api/v1/content/:id", userMiddleware, async (req, res) => {
+  const contentId = req.params.id;
 
-    res.json({
-        message : "Content deleted",
+  await ContentModle.deleteOne({
+    _id: contentId, // ✅ this was wrong before
+    // @ts-ignore
+    userId: req.userId
+  });
 
-    })
-})
+  res.json({
+    message: "Content deleted",
+  });
+});
+
+
 
 app.post("/api/v1/brain/share",userMiddleware,async(req,res)=>{
     const share  = req.body.share;
