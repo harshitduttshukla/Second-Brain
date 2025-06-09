@@ -9,6 +9,10 @@ import { useContent } from "../hooks/useContent";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
 
+
+
+
+
 export function Dashbord() {
   const [modalOpen, setModelOPen] = useState(false);
   const { contents, refresh } = useContent();
@@ -16,6 +20,20 @@ export function Dashbord() {
   useEffect(() => {
     refresh();
   }, [modalOpen]);
+
+  const handleDelete = async (id: string) => {
+    try {
+      await axios.delete(`${BACKEND_URL}/api/v1/content/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      refresh();
+    } catch (err) {
+      console.error("Failed to delete content", err);
+      alert("Error deleting content");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0d0d0d] text-white flex">
@@ -58,8 +76,14 @@ export function Dashbord() {
         </div>
 
         <div className="flex gap-6 flex-wrap">
-          {contents.map(({ Type, Link, title }, index) => (
-            <Card key={index} type={Type} Link={Link} title={title} />
+          {contents.map(({ _id, Type, Link, title }) => (
+            <Card
+              key={_id}
+              type={Type}
+              Link={Link}
+              title={title}
+              onDelete={() => handleDelete(_id)}
+            />
           ))}
         </div>
       </div>
