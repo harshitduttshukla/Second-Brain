@@ -9,7 +9,12 @@ enum ContemtType {
     Twitter = "twitter"
 }
 
-export function CreateContrentModal({open,onclose}) {
+interface CreateContrentModalProps {
+    open: boolean;
+    onclose: () => void;
+  }
+
+export function CreateContrentModal({open,onclose}:CreateContrentModalProps) {
     const titleRef = useRef<HTMLInputElement>();
     const LinkRef = useRef<HTMLInputElement>();
     const [Type,setType] = useState(ContemtType.Twitter);
