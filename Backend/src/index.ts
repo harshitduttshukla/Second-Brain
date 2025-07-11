@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { ContentModle, LinkModel, UserModel } from './db';
-import zod, { makeIssue } from 'zod';
+import zod from 'zod';
 import { JWT_SECRET } from './config';
 import { userMiddleware } from './middleware';
 import { random } from './units';
