@@ -1,6 +1,6 @@
 import { ShareIcon } from "../icons/ShareIcon";
-// import { TrashIcon } from "../icons/ShareIcon" // Make sure you have this icon
-// OR replace it with any delete icon you use
+import { Trash } from "lucide-react"; // Step 1: Import the Trash icon
+
 
 interface CardProps {
   title: string;
@@ -45,7 +45,7 @@ export function Card({ title, Link, type, onDelete }: CardProps): JSX.Element {
     <div className="p-5 bg-[#141414] border border-white/10 rounded-2xl shadow-xl backdrop-blur-md text-white max-w-96 min-h-56 w-full transition-transform hover:scale-[1.03] duration-300">
       <div className="flex justify-between items-center">
         <div className="flex items-center text-lg font-semibold text-gray-300 gap-2">
-          <ShareIcon />
+        
           {title}
         </div>
 
@@ -62,13 +62,14 @@ export function Card({ title, Link, type, onDelete }: CardProps): JSX.Element {
           </a>
 
           {/* Delete Button */}
-          <button
-            onClick={onDelete}
-            className="text-gray-400 hover:text-red-500"
-            title="Delete"
-          >
-            <ShareIcon />
-          </button>
+           <button
+          onClick={onDelete}
+          className="text-gray-400 hover:text-red-500"
+          title="Delete"
+        >
+          <Trash size={20} />
+        </button>
+
         </div>
       </div>
 

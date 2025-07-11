@@ -123,17 +123,6 @@ app.get("/api/v1/content", middleware_1.userMiddleware, (req, res) => __awaiter(
         content
     });
 }));
-// app.delete("/api/v1/content",userMiddleware,async(req,res)=>{
-//     const contentId = req.body.contentId;
-//     await ContentModle.deleteMany({
-//         contentId,
-//         // @ts-ignore
-//         userId : req.userId
-//     })
-//     res.json({
-//         message : "Content deleted",
-//     })
-// })
 // DELETE /api/v1/content/:id
 app.delete("/api/v1/content/:id", middleware_1.userMiddleware, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const contentId = req.params.id;
